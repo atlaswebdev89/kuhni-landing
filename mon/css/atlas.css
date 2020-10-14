@@ -167,13 +167,14 @@
     top:0;
     right: 0;
     height: 100%;
-    width: 380px;
+    width: 100px;
     transform: translateX(250px);
     transition: all .5s ease-in-out;
     opacity: 0;
     visibility: hidden;
     background-color: white;
     z-index: 60;
+    overflow-y: scroll;
 }
 /*adaptive width for mobile menu*/
 @media (min-width: 220px) {
@@ -201,6 +202,81 @@
 @media (max-width: 1200px) {}
 /* END */
 
+.offcavnas_menu {
+    padding: 30px 30px;
+}
+.offcavnas_menu .offcavnas-close{
+    text-align: right;
+    padding: 20px;
+}
+.offcavnas_menu .offcavnas-close i{
+    cursor: pointer;
+    font-size: 26px;
+    font-weight: lighter;
+}
+.offcavnas-logo {
+    text-align: center;
+}
+.offcavnas-main-menu {
+    border-bottom: 1px solid silver;
+}
+.site-nav-wrap {
+    text-transform: uppercase;
+
+}
+.site-nav-wrap li{
+    padding: 5px;
+}
+.site-nav-wrap .has-children {
+    position: relative;
+}
+.site-nav-wrap .has-children>a>i {
+    display: none;
+}
+.site-nav-wrap .has-children .arrow-collapse {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+.site-nav-wrap .has-children .collapsed > i{
+    transform: rotate(180deg);
+}
+.site-nav-wrap .has-children .arrow-collapse > i{
+    transition: all .3s ease;
+}
+.site-nav-wrap li >ul {
+    padding: 0;
+}
+.site-nav-wrap li > ul >li > a {
+    padding-left: 20px;
+}
+.site-nav-wrap .active {
+    color: #009DFF;
+}
+
+.offcavnas-social-menu ul {
+    text-align: center;
+}
+.offcavnas-social-menu ul li {
+    padding: 10px;
+    font-size: 26px;
+}
+.offcavnas-social-menu ul > li {
+    display: inline-block;
+}
+
+.offcavnas-phone-button .book_btn_mobile {
+    background: #009DFF;
+    padding: 12px 26px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+
+
+
 .open-body {
     overflow: hidden;
 }
@@ -226,3 +302,26 @@
     color: white;
     font-size: 26px;
 }
+
+
+
+
+.slider_bg_3 {
+    background: url("../images/6.jpg");
+}.slider_bg_4 {
+    background: url("../images/7.jpg");
+}.slider_bg_5 {
+    background: url("../images/8.jpg");
+}.slider_bg_6 {
+    background: url("../images/9.jpg");
+}
+ .overlay-img {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background-color: rgba(40, 39, 39, 0.84);
+     opacity: 0.5;
+ }
+
