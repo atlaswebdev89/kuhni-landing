@@ -274,9 +274,6 @@
     color: #fff;
 }
 
-
-
-
 .open-body {
     overflow: hidden;
 }
@@ -306,15 +303,8 @@
 
 
 
-.slider_bg_3 {
-    background: url("../images/6.jpg");
-}.slider_bg_4 {
-    background: url("../images/7.jpg");
-}.slider_bg_5 {
-    background: url("../images/8.jpg");
-}.slider_bg_6 {
-    background: url("../images/9.jpg");
-}
+
+/*Main Slider */
  .overlay-img {
      position: absolute;
      top: 0;
@@ -322,6 +312,60 @@
      height: 100%;
      width: 100%;
      background-color: rgba(40, 39, 39, 0.84);
-     opacity: 0.5;
+     opacity: 0.6;
  }
+ .overlay-data {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background-color: rgba(40, 39, 39, 0.84);
+     opacity: 0.8;
+ }
+.slider-main {
+    position: relative;
+}
+ .block-bottom-data {
+     font-size: 14px;
+     z-index: 2;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+ }
+ .block-bottom-data a, .block-bottom-data p {
+     color: white;
+ }
+ .block-bottom-data i {
+     font-size: 36px;
+     color: #dc3545;
+ }
+@media (max-width: 575px) {
+    .block-bottom-data i {
+        font-size: 28px;
+    }
+}
+/* END Main Slider */
+
+.profit-desing li {
+    padding: 20px;
+    list-style: circle;
+}
+.re {
+    object-fit: cover;
+    height: 100%;
+
+}
+.about_area {
+    background-color: white;
+}
+.hj {
+    background-color: #1e7e34;
+    margin-top: -60px;
+}
+.hj>div {
+    padding-top: 80px;
+}
+
 

@@ -146,9 +146,7 @@ var siteMenuClone = function() {
                 'class' : 'collapse',
                 'id' : 'collapseItem' + counter,
             });
-
             counter++;
-
         });
 
     }, 1000);
@@ -158,15 +156,14 @@ var siteMenuClone = function() {
         if ( $this.closest('li').find('.collapse').hasClass('show') ) {
             $this.removeClass('active');
         } else {
+            $this.closest('.site-nav-wrap').find('.has-children').each(function () {
+                $(this).find('.arrow-collapse').removeClass('active').addClass('collapsed');
+                $(this).find('.collapse').removeClass('show');
+            });
             $this.addClass('active');
         }
         e.preventDefault();
-
     });
-
-
-
-
 };
 siteMenuClone();
 
