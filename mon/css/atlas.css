@@ -151,6 +151,7 @@
     }
 }
 
+
 /* Menu */
 #overlay-menu {
     position: fixed;
@@ -299,10 +300,19 @@
     color: white;
     font-size: 26px;
 }
-
-
-
-
+.icon-phone-list {
+    border-top: 1px solid silver;
+}
+.icon-phone-list ul li {
+    font-size: 26px;
+    padding:10px;
+}
+.offcavnas-footer a {
+    color: #009DFF;
+    font-style: italic;
+    font-size: 22px;
+}
+/* END Mobile Menu*/
 
 /*Main Slider */
  .overlay-img {
@@ -348,24 +358,104 @@
 }
 /* END Main Slider */
 
+/*Profit Desing order*/
 .profit-desing li {
-    padding: 20px;
-    list-style: circle;
+    padding: 10px;
 }
-.re {
+.profit-img {
     object-fit: cover;
     height: 100%;
-
 }
 .about_area {
     background-color: white;
 }
-.hj {
-    background-color: #1e7e34;
-    margin-top: -60px;
+/* END Profit Desing order*/
+
+
+/* Schema jobs firma*/
+.scheme-of-jobs {
+    position: relative;
 }
-.hj>div {
-    padding-top: 80px;
+.header-blocl-scheme {
+    background: #9fc8e1;
+    color: white;
 }
+.footer-scheme {
+    background: #9fc8e1;
+    height: 28px;
+}
+.scheme-of-jobs:before {
+    content: " ";
+    width: 2px;
+    position: absolute;
+    left: 50%;
+    top:0;
+    bottom: 0;
+    background: #9fc8e1;
+}
+.number-icon {
+    top:40px;
+    position: absolute;
+    left: 50%;
+    margin-left: -21px;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    background-color: #9fc8e1;
+    z-index: 5;
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+}
+.scheme-elem {
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.elem-data {
+    padding: 10px;
+    width: 45%;
+    border-bottom: 1px solid silver;
+}
+@media (max-width: 575px) {
+    .scheme-of-jobs:before {
+        left: 15%;
+    }
+    .number-icon {
+        top: 30px;
+        left: 6.5%;
+    }
+    .elem-data {
+        margin-left: 18%;
+        width: 100%;
+        padding: 15px;
+    }
+}
+@media (max-width: 320px) {
+    .number-icon {
+        height: 40px;
+        width: 40px;
+        top: 40px;
+        left: 5%;
+        font-size: 26px;
+    }
+}
+@media (max-width: 250px) {
+    .number-icon {
+        height: 26px;
+        width: 26px;
+        font-size: 15px;
+        left: 8%;
+    }
+    .scheme-of-jobs p{
+        font-size: 14px;
+    }
+    .scheme-of-jobs h3{
+        font-size: 18px;
+    }
+}
+/* END Schema jobs firma*/
+
+
 
 
