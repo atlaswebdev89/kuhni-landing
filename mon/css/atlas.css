@@ -557,3 +557,41 @@
 }
 
 /* END Price kuhni */
+
+/* Rewievs*/
+.img-client {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 1px solid #009DFF;
+    overflow: hidden;
+}
+.img-client img {
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+.img-client img:hover {
+    transform: scale(1.1);
+}
+.rewievs-starts {
+    color: #dc3545;
+}
+.rewievs .owl-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 40px;
+}
+.rewievs .owl-dot {
+    padding: 5px 5px;
+    margin-left: 10px;
+    border: 1px solid silver;
+    background-color: silver;
+    transition: all 0.3s ease;
+}
+.rewievs .owl-dots>.active {
+    background-color: #009DFF !important;
+}
+/* END Rewievs*/

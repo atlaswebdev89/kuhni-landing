@@ -9,6 +9,7 @@ $(document).ready(function(){
 
     let owlKatalog = $('.owl-carousel-catalog');
     let partner = $('.our_partner');
+    let rewiews =$('.rewievs');
 
     owlKatalog.owlCarousel({
         loop:false,
@@ -37,12 +38,12 @@ $(document).ready(function(){
 
     partner.owlCarousel({
         loop:true,
-        margin:10,
+        margin:0,
         autoHeight: true,
         nav:true,
         items:1,
         autoplay: true,
-        autoplaySpeed:500,
+        autoplaySpeed: 800,
         autoplayHoverPause: true,
         navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
         rewind: false,
@@ -50,13 +51,38 @@ $(document).ready(function(){
         responsive:{
             0:{
                 items:1,
-
             },
             767:{
                 items:2
             },
             992:{
                 items:4
+            }
+        }
+    });
+
+    rewiews.owlCarousel({
+        loop:true,
+        margin:0,
+        autoHeight: false,
+        nav:false,
+        items:1,
+        autoplay: true,
+        autoplaySpeed: 800,
+        autoplayHoverPause: true,
+        navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
+        rewind: true,
+        dots: true,
+        dotsEach: true,
+        responsive:{
+            0:{
+                items:1
+            },
+            767:{
+                items:1
+            },
+            992:{
+                items:1
             }
         }
     });
@@ -154,7 +180,6 @@ var siteMenuClone = function() {
         var $this = $(this);
         $this.clone().appendTo('.offcavnas-social-menu');
     })
-
 
     setTimeout(function() {
 
