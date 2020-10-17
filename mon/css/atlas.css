@@ -1,3 +1,9 @@
+/* Animation */
+.animate-box {
+    opacity: 0;
+}
+/* END */
+
 .about_thumb {
     position: relative;
 }
@@ -37,7 +43,6 @@
     position: absolute;
     top:30%;
     width: 100%;
-
 }
 .owl-carousel-catalog .owl-nav .owl-prev {
     left: 2%;
@@ -456,8 +461,99 @@
 }
 /* END Schema jobs firma*/
 
-
-
-.animate-box {
-    opacity: 0;
+/* Out Partner Owl Carusel */
+.owl-carousel.our_partner .owl-nav div{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #23272b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:none;
 }
+.owl-carousel.our_partner .owl-prev {
+    left:0 !important;
+}
+.owl-carousel.our_partner .owl-next {
+    right:0 !important;
+}
+.owl-carousel.our_partner .owl-prev:hover {
+    background: none !important;
+    color: #23272b !important;
+}
+.owl-carousel.our_partner .owl-next:hover {
+    background: none !important;
+    color: #23272b !important;
+}
+/* END Out Partner Owl Carusel*/
+
+/*Price Kuhni*/
+.price-item {
+    border: 1px solid rgba(0, 0, 0, 0.1);;
+    overflow: hidden;
+}
+
+.price-img {
+    overflow: hidden;
+}
+.price-img-style {
+    height: 240px;
+    transition: all 0.4s ease;
+}
+.price-img-style:hover {
+    transform: scale(1.1);
+}
+
+.price-img-style img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.price-info {
+    padding-top: 60px;
+    height: 100%;
+}
+.price-item-name {
+    position: absolute;
+    background-color: #009DFF;
+    color: white;
+    top: 10px;
+    left: -100px;
+    right: -2px;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px;
+    transition: all 0.4s ease;
+}
+.price-item-name:hover {
+    color:#009DFF;
+    background-color: white;
+    border: 1px solid #009DFF;
+}
+
+
+@media (max-width: 992px) {
+    .price-img-style {
+        height: 200px;
+    }
+}
+@media (max-width: 767px) {
+    .price-img-style {
+        height: 180px;
+    }
+    .price-info-item p {
+        font-size: 14px;
+    }
+}
+@media (max-width: 575px) {
+    .price-img-style {
+        height: 230px;
+    }
+    .price-item-name {
+        font-size: 16px;
+    }
+}
+
+/* END Price kuhni */

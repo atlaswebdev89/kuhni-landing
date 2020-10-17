@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 
     let owlKatalog = $('.owl-carousel-catalog');
+    let partner = $('.our_partner');
 
     owlKatalog.owlCarousel({
         loop:false,
@@ -30,6 +31,32 @@ $(document).ready(function(){
             },
             992:{
                 items:3
+            }
+        }
+    });
+
+    partner.owlCarousel({
+        loop:true,
+        margin:10,
+        autoHeight: true,
+        nav:true,
+        items:1,
+        autoplay: true,
+        autoplaySpeed:500,
+        autoplayHoverPause: true,
+        navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
+        rewind: false,
+        dots: false,
+        responsive:{
+            0:{
+                items:1,
+
+            },
+            767:{
+                items:2
+            },
+            992:{
+                items:4
             }
         }
     });
