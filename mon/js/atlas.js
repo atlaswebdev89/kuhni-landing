@@ -14,7 +14,7 @@ $(document).ready(function(){
     owlKatalog.owlCarousel({
         loop:false,
         margin:10,
-        autoHeight: true,
+        autoHeight: false,
         nav:true,
         items:1,
         autoplay: true,
@@ -39,7 +39,7 @@ $(document).ready(function(){
     partner.owlCarousel({
         loop:true,
         margin:0,
-        autoHeight: true,
+        autoHeight: false,
         nav:true,
         items:1,
         autoplay: true,
@@ -223,9 +223,11 @@ siteMenuClone();
 var contentWayPoint = function() {
     var i = 0;
     $('.animate-box').waypoint( function( direction ) {
-        if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
+        console.log("START");
+        if( direction === 'down' && !$(this.element).hasClass('animated') ) {
             i++;
-            $(this).addClass('item-animate');
+            console.log(i);
+            $(this.element).addClass('item-animate');
             setTimeout(function(){
                 $('body .animate-box.item-animate').each(function(k){
                     var el = $(this);
@@ -243,7 +245,7 @@ var contentWayPoint = function() {
                             el.addClass('fadeInUp animated');
                         }
                         el.removeClass('item-animate');
-                    },  k * 200, 'easeInOutExpo' );
+                    },  k * 50, 'easeInOutExpo' );
                 });
             }, 100);
         }
@@ -251,3 +253,9 @@ var contentWayPoint = function() {
 };
 contentWayPoint();
 /* ========================== END ==============================*/
+
+$(function () {
+    $('.example-popover').popover({
+        container: 'body'
+    })
+})
