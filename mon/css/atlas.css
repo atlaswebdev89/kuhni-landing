@@ -600,3 +600,8 @@
     background-color: #009DFF !important;
 }
 /* END Rewievs*/
+.logo-name {
+    font-family: 'Courgette', 'cursive';
+    font-size: 30px;
+    color: #009DFF;
+}
