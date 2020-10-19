@@ -4,6 +4,23 @@ $(document).ready(function(){
         //Preloader off
         $(".loader-wrap").delay(500).fadeOut("600");
         $("#overlay-loader").delay(500).fadeOut("600");
+        setTimeout(function (){
+
+            $('#sticky-header .row').children('div').each(function (k) {
+                let el = $(this);
+                setTimeout( function () {
+                    el.addClass('fadeIn animated');
+                },  k*100, 'easeInOutExpo' );
+            });
+
+            $('.calculator-kuhni .row').children('div').each(function (k) {
+                let el = $(this);
+                setTimeout( function () {
+                    el.addClass('fadeIn animated');
+                },  k*200, 'easeInOutExpo' );
+            });
+
+        },1000);
     });
 
 
@@ -136,13 +153,20 @@ $(document).ready(function(){
         let overlay_offcavnas = $('#overlay-menu');
         let owl = $('.owl-carousel');
 
+        var CLose_overlay_mobile = function () {
+            overlay_offcavnas.fadeOut(1000);
+            $('body').removeClass('open-body');
+        }
+        var Open_overlay_mobile = function () {
+            overlay_offcavnas.fadeIn("1000");
+            // отключить скрол пока открыто мобильное меню
+            $('body').addClass('open-body');
+        }
         //Клик по burger открытия мобильного меню
         burger_mobile.on('click', function (e) {
                     e.preventDefault();
                     $(this).addClass('active');
-                        overlay_offcavnas.fadeIn("1000");
-                        // отключить скрол пока открыто мобильное меню
-                        $('body').addClass('open-body');
+                    Open_overlay_mobile();
                         //Открыть offcavnas меню
                         $('.mobile_menu_block').addClass('open_offcavnas');
                         //Отключить все карусели owl-carusel
@@ -151,8 +175,7 @@ $(document).ready(function(){
 
         overlay_offcavnas.on('click', function () {
             $('.mobile_menu_block').removeClass('open_offcavnas');
-            $('body').removeClass('open-body');
-            overlay_offcavnas.fadeOut("1000");
+            CLose_overlay_mobile();
             //Включить все карусели owl-carusel
             owl.trigger('play.owl.autoplay');
             burger_mobile.removeClass('active');
@@ -163,8 +186,7 @@ $('.closed-mobile-menu').on('click', function (e) {
     if (burger_mobile.hasClass('active')) {
         burger_mobile.removeClass('active');
         $('.mobile_menu_block').removeClass('open_offcavnas');
-        $('body').removeClass('open-body');
-        overlay_offcavnas.fadeOut("1000");
+        CLose_overlay_mobile();
         //Включить все карусели owl-carusel
         owl.trigger('play.owl.autoplay');
     }
@@ -254,8 +276,24 @@ var contentWayPoint = function() {
 contentWayPoint();
 /* ========================== END ==============================*/
 
-$(function () {
-    $('.example-popover').popover({
-        container: 'body'
-    })
-})
+/* Smooth Scroll Menu */
+$('#navigation a').on('click', function (e) {
+    e.preventDefault();
+    let href = $(this).attr('href');
+    if(href != '#') {
+        let position = $(href).offset().top;
+        $('html, body').animate(
+            {
+                scrollTop: position
+            },
+            {
+                duration: 1000,   // по умолчанию «400»
+                easing: "swing" // по умолчанию «swing»
+            });
+    };
+    //Закрыть боковое меню
+    $(this).closest('.mobile_menu_block').removeClass('open_offcavnas');
+    CLose_overlay_mobile();
+});
+/* end Smooth Scroll */
+

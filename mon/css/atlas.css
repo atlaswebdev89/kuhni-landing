@@ -605,3 +605,9 @@
     font-size: 30px;
     color: #009DFF;
 }
+.header-area .row>div{
+    opacity: 0;
+}
+.calculator-kuhni .row>div {
+    opacity: 0;
+}
