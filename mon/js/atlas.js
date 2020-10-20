@@ -1,5 +1,5 @@
-$(document).ready(function(){
 
+$(document).ready(function(){
     $(window).on('load', function() {
         //Preloader off
         $(".loader-wrap").delay(500).fadeOut("600");
@@ -145,6 +145,46 @@ $(document).ready(function(){
         });
         return false;
     });
+
+    /*ScrollSpy js simple
+       ================================================ */
+    //get Anchor link, create array
+    var anchorLink = Array ();
+    $('section, body').each(function (i) {
+        let id = $(this).attr('id');
+        if (id) {
+            anchorLink.push(id);
+        }
+    });
+
+
+    function scrollSpy() {
+        let current;
+        for (let i = 0; i < anchorLink.length; i++) {
+            if ( $('#'+anchorLink[i]).offset().top - 50 <= $(window).scrollTop() ) {
+                current = anchorLink[i];
+            }
+        }
+
+        $("#navigation a[href='#"+current+"'] ").addClass('active');
+        $("#navigation a").not("a[href='#"+current+"']").removeClass('active');
+
+        if( $("#navigation a[href='#"+current+"'] ").parent().parent().hasClass('submenu')) {
+            $("#navigation a[href='#"+current+"'] ").closest('.has-children').children('a').addClass('active');
+        };
+    }
+    //scrollSpy call
+    $(document).ready( function() {
+        scrollSpy();
+    });
+
+    $(window).on('scroll', function() {
+        scrollSpy();
+    });
+
+    /* =======================================================*/
+
+
     })
 
 /* Modile Menu*/
@@ -171,6 +211,37 @@ $(document).ready(function(){
                         $('.mobile_menu_block').addClass('open_offcavnas');
                         //Отключить все карусели owl-carusel
                         owl.trigger('stop.owl.autoplay');
+
+                        //Открытие Submenu при активном пункте
+                        $('#navigation').find('.active').each(function (i) {
+                            let active = $(this);
+                            if(active.closest('.collapse').hasClass('collapse'))
+                            {
+                                    let item = active.closest('.collapse');
+                                    let has_children = item.parent();
+
+                                    if(!item.hasClass('show'))
+                                            {
+                                                item.addClass('show');
+                                            }
+
+                                    if(has_children.children('.arrow-collapse').hasClass('collapsed')) {
+                                        has_children.children('.arrow-collapse').removeClass('collapsed').addClass('active');
+                                    }else if (!has_children.children('.arrow-collapse').hasClass('active')){
+                                        has_children.children('.arrow-collapse').addClass('active');
+                                    }
+                            }else {
+                                    $('#navigation').find('.has-children').each(function (h) {
+                                            let items =$(this);
+                                            if (items.children('.collapse').hasClass('show')) {
+                                                items.children('.collapse').removeClass('show');
+                                            }
+                                            if(items.children('.arrow-collapse').hasClass('active')) {
+                                                    items.children('.arrow-collapse').removeClass('active').addClass('collapsed');
+                                            }
+                                    })
+                            }
+                        });
         })
 
         overlay_offcavnas.on('click', function () {
@@ -296,4 +367,8 @@ $('#navigation a').on('click', function (e) {
     CLose_overlay_mobile();
 });
 /* end Smooth Scroll */
+
+
+
+
 

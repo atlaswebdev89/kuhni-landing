@@ -302,6 +302,10 @@
 .main-menu .has-children li:hover {
     transform: translateX(10px);
 }
+.main-menu .has-children li a.active {
+    transform: translateX(10px);
+    color: #989090 !important;
+}
 .button-open-mobile-menu {
     text-align: right;
     padding-right: 30px;
@@ -600,14 +604,29 @@
     background-color: #009DFF !important;
 }
 /* END Rewievs*/
+
+/* LOGO */
 .logo-name {
     font-family: 'Courgette', 'cursive';
     font-size: 30px;
     color: #009DFF;
 }
+/* EndLogo */
+
+/* */
 .header-area .row>div{
     opacity: 0;
 }
 .calculator-kuhni .row>div {
     opacity: 0;
+}
+/**/
+.slider_text h3 {
+    font-size: 60px;
+}
+
+/**/
+
+.header-area .main-header-area .main-menu ul li ul.submenu a.active {
+
 }
