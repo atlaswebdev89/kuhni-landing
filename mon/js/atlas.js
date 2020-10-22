@@ -213,35 +213,34 @@ $(document).ready(function(){
                         owl.trigger('stop.owl.autoplay');
 
                         //Открытие Submenu при активном пункте
-                        $('#navigation').find('.active').each(function (i) {
-                            let active = $(this);
-                            if(active.closest('.collapse').hasClass('collapse'))
-                            {
+                        if ($('#navigation').find('.collapse .active').length > 0){
+                            $('#navigation').find('.collapse .active').each(function (i) {
+                                let active = $(this);
+                                if(active.closest('.collapse').hasClass('collapse'))
+                                {
                                     let item = active.closest('.collapse');
                                     let has_children = item.parent();
 
                                     if(!item.hasClass('show'))
-                                            {
-                                                item.addClass('show');
-                                            }
-
-                                    if(has_children.children('.arrow-collapse').hasClass('collapsed')) {
-                                        has_children.children('.arrow-collapse').removeClass('collapsed').addClass('active');
-                                    }else if (!has_children.children('.arrow-collapse').hasClass('active')){
+                                    {
+                                        item.collapse('show');
+                                    }
+                                   if (!has_children.children('.arrow-collapse').hasClass('active')){
                                         has_children.children('.arrow-collapse').addClass('active');
                                     }
-                            }else {
-                                    $('#navigation').find('.has-children').each(function (h) {
-                                            let items =$(this);
-                                            if (items.children('.collapse').hasClass('show')) {
-                                                items.children('.collapse').removeClass('show');
-                                            }
-                                            if(items.children('.arrow-collapse').hasClass('active')) {
-                                                    items.children('.arrow-collapse').removeClass('active').addClass('collapsed');
-                                            }
-                                    })
-                            }
-                        });
+                                }
+                            });
+                        }else {
+                            $('#navigation').find('.has-children').each(function (h) {
+                                let items =$(this);
+                                if (items.children('.collapse').hasClass('show')) {
+                                    items.children('.collapse').collapse('hide');
+                                }
+                                if(items.children('.arrow-collapse').hasClass('active')) {
+                                    items.children('.arrow-collapse').removeClass('active');
+                                }
+                            })
+                        }
         })
 
         overlay_offcavnas.on('click', function () {
