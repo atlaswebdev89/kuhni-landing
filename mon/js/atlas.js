@@ -302,7 +302,7 @@ var siteMenuClone = function() {
         } else {
             $this.closest('.site-nav-wrap').find('.has-children').each(function () {
                 $(this).find('.arrow-collapse').removeClass('active').addClass('collapsed');
-                $(this).find('.collapse').removeClass('show');
+                $(this).find('.collapse').collapse('hide');
             });
             $this.addClass('active');
         }

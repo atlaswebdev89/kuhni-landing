@@ -625,8 +625,26 @@
     font-size: 60px;
 }
 
-/**/
+/*Блок элементов кухни и материалов*/
+.material {
 
-.header-area .main-header-area .main-menu ul li ul.submenu a.active {
+}
+.item-material {
+    border-bottom: 1px solid silver;
+}
+.list-item-material {
 
+ }
+.list-item-material span{
+
+}
+.item-el-name {
+    font-weight: 500;
+    font-style: italic;
+}
+.raiting {
+
+}
+.raiting i {
+    color: #dc3545;
 }
