@@ -5,6 +5,18 @@
 .animate-box {
     opacity: 0;
 }
+/**/
+.ptb {
+    padding-bottom: 70px;
+    padding-top: 70px;
+}
+.ptb-inside {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.bg {
+    background-color: #f1f1f1;
+}
 
 /* END */
 
@@ -188,9 +200,15 @@
     overflow-y: scroll;
 }
 /*adaptive width for mobile menu*/
+@media (max-width: 219px) {
+    .mobile_menu_block {
+        width: 85%;
+        font-size: 10px;
+    }
+}
 @media (min-width: 220px) {
     .mobile_menu_block {
-        width: 220px;
+        width: 85%;
     }
 }
 @media (min-width: 320px) {
@@ -230,6 +248,7 @@
 }
 .offcavnas-main-menu {
     border-bottom: 1px solid silver;
+    overflow: hidden;
 }
 .site-nav-wrap {
     text-transform: uppercase;
@@ -246,8 +265,8 @@
 }
 .site-nav-wrap .has-children .arrow-collapse {
     position: absolute;
-    right: 5px;
-    top: 10px;
+    right: -12px;
+    top: 5px;
 }
 .site-nav-wrap .has-children .collapsed > i{
     transform: rotate(180deg);
@@ -627,6 +646,12 @@
 
 /*Блок элементов кухни и материалов*/
 .material {
+
+}
+.material-img {
+
+}
+.material-img img {
 
 }
 .item-material {

@@ -150,7 +150,7 @@ $(document).ready(function(){
        ================================================ */
     //get Anchor link, create array
     var anchorLink = Array ();
-    $('section, body').each(function (i) {
+    $('section, body, .menu-scroll').each(function (i) {
         let id = $(this).attr('id');
         if (id) {
             anchorLink.push(id);
@@ -161,7 +161,7 @@ $(document).ready(function(){
     function scrollSpy() {
         let current;
         for (let i = 0; i < anchorLink.length; i++) {
-            if ( $('#'+anchorLink[i]).offset().top - 50 <= $(window).scrollTop() ) {
+            if ( $('#'+anchorLink[i]).offset().top - 150 <= $(window).scrollTop() ) {
                 current = anchorLink[i];
             }
         }
@@ -354,7 +354,7 @@ $('#navigation a').on('click', function (e) {
         let position = $(href).offset().top;
         $('html, body').animate(
             {
-                scrollTop: position
+                scrollTop: position-60
             },
             {
                 duration: 1000,   // по умолчанию «400»
