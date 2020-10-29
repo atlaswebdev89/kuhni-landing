@@ -368,6 +368,137 @@ $('#navigation a').on('click', function (e) {
 /* end Smooth Scroll */
 
 
+/* MaskInputPhone*/
+/* ===================================================== */
+$('.phone').mask("+375 (99) 999-99-99",
+    {
+        completed: function(){
+            console.log("OK");
+        }
+    });
+/* ===================================================== */
+
+/* Botton for Clear input form */
+$('#clear').on('click', function (e) {
+    e.preventDefault();
+    $('.clear-form')[0].reset();
+})
+/* === */
+/* Validate for form */
+$('#desing-form').validate({
+    rules: {
+        name:{
+            required:true,
+            minlength: 2
+        },
+        phone:{
+            required:true,
+            minlength: 19
+        },
+    },
+    errorPlacement: function (error, element) {},
+    errorClass: "has-error",
+    validClass: "has-success",
+    highlight: function (element, errorClass, validClass ) {
+        $(element)
+            .closest('.form-control')
+            .addClass(errorClass);
+    },
+    unhighlight: function (element, errorClass, validClass) {
+        $(element)
+            .closest('.form-control')
+            .removeClass(errorClass)
+    },
+    submitHandler: function(form) {
+        dataForm(form);
+    }
+});
+$('#contactForm').validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 2
+            },
+            subject: {
+                required: true,
+                minlength: 4
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            message: {
+                required: true,
+                minlength: 10
+            },
+        },
+        messages: {
+            name: {
+                required: "Заполните поле",
+                minlength: "Слишком коротное имя"
+            },
+            email: {
+                required: "Заполните поле",
+                email: "Укажите email адрес"
+            },
+            message: {
+                required: "Заполните поле",
+                minlength: "Еще что-нибудь напишите"
+            }
+        },
+        errorClass: "has-error",
+        validClass: "has-success",
+        highlight: function (element, errorClass, validClass ) {
+            $(element)
+                .closest('.form-control')
+                .addClass(errorClass);
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element)
+                .closest('.form-control')
+                .removeClass(errorClass)
+        },
+        submitHandler: function(form) {
+            dataForm(form);
+        },
+    });
+$('#contactFormModal').validate({
+    rules: {
+        name:{
+            required:true,
+            minlength: 2
+        },
+        email:{
+            required:true,
+        },
+    },
+    errorPlacement: function (error, element) {},
+    errorClass: "has-error",
+    validClass: "has-success",
+    highlight: function (element, errorClass, validClass ) {
+        $(element)
+            .closest('.form-control')
+            .addClass(errorClass);
+    },
+    unhighlight: function (element, errorClass, validClass) {
+        $(element)
+            .closest('.form-control')
+            .removeClass(errorClass)
+    },
+    submitHandler: function(form) {
+        dataForm(form);
+    }
+});
+
+function dataForm (form) {
+    let formData = new FormData(form);
+    ajaxTransfer(form, formData);
+}
+function ajaxTransfer(form, formData) {
+    console.log(formData);
+}
+
+/**/
 
 
 

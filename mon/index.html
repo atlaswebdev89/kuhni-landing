@@ -57,7 +57,7 @@
                 <div class="offcavnas-phone-button  text-center">
                     <div class="pb-3 pt-1">
                         <div class="book_btn_mobile">
-                            <a class="" href="#">Оставить заявку</a>
+                            <a class="" data-toggle="modal" data-target="#formModal" href="#">Оставить заявку</a>
                         </div>
                     </div>
                     <div class="icon-phone-list">
@@ -1155,7 +1155,7 @@
                 <p class="t-offers animate-box">
                     <span class="t-offers-order">5%</span> скидка при заказе через сайт
                 </p>
-                <button type="button" class="button button-contactForm boxed-btn animate-box">Заказать кухню</button>
+                <button type="button" data-toggle="modal" data-target="#formModal" class="button button-contactForm boxed-btn animate-box">Заказать кухню</button>
             </div>
         </div>
     </section>
@@ -1958,7 +1958,8 @@
                     </div>
                 </div>
             </div>
-            <form class="form-contact contact_form" action=""  id="contactForm1" novalidate="novalidate">
+
+            <form class="form-contact contact_form" id="desing-form" novalidate="novalidate">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -1967,7 +1968,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <input class="form-control valid" name="phone" id="phone" type="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваше номер телефона'" placeholder="Ваш номер телефона">
+                            <input class="form-control valid phone" name="phone" id="phone" type="tel" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваше номер телефона'" placeholder="Ваш номер телефона">
                         </div>
                     </div>
                 </div>
@@ -1975,6 +1976,7 @@
                     <button type="submit" class="button button-contactForm boxed-btn">Вызвать дизайнера</button>
                 </div>
             </form>
+
             <div class="col-md-12 text-center">
                 <p>
                     Либо позвоните по телефону:
@@ -2524,7 +2526,7 @@
                     <h2 class="contact-title">Что вы хотите узнать?</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <form class="form-contact contact_form" action=""  id="contactForm" novalidate="novalidate">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -2622,9 +2624,7 @@
         </div>
     </footer>
 
-    <!-- link that opens popup -->
-
-    <!-- Button top back -->
+      <!-- Button top back -->
     <div class="wrap-button-top">
         <div class="scroll-top">
             <div class="scroll-top-button">
@@ -2632,55 +2632,44 @@
             </div>
         </div>
     </div>
-
     <!-- END -->
-    <!-- form itself end-->
-        <form id="test-form" class="white-popup-block mfp-hide">
-                <div class="popup_box ">
-                        <div class="popup_inner">
-                            <h3>Check Availability</h3>
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <input id="datepicker" placeholder="Check in date">
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <input id="datepicker2" placeholder="Check out date">
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <select class="form-select wide" id="default-select" class="">
-                                            <option data-display="Adult">1</option>
-                                            <option value="1">2</option>
-                                            <option value="2">3</option>
-                                            <option value="3">4</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <select class="form-select wide" id="default-select" class="">
-                                            <option data-display="Children">1</option>
-                                            <option value="1">2</option>
-                                            <option value="2">3</option>
-                                            <option value="3">4</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xl-12">
-                                        <select class="form-select wide" id="default-select" class="">
-                                            <option data-display="Room type">Room type</option>
-                                            <option value="1">Laxaries Rooms</option>
-                                            <option value="2">Deluxe Room</option>
-                                            <option value="3">Signature Room</option>
-                                            <option value="4">Couple Room</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xl-12">
-                                        <button type="submit" class="boxed-btn3">Check Availability</button>
-                                    </div>
+
+    <!-- Modal Form -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="feedModalLabel">Заказать кухню..</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-contact contact_form clear-form" action=""  id="contactFormModal" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Как вас зовут'" placeholder="Как вас зовут">
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-            </form>
-    <!-- form itself end -->
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Укажите e-mail адрес'" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" id="exp" class="btn btn-primary">Отправить</button>
+                                <button type="button" id="clear" class="btn btn-secondary">Очистить</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                            </div>
+                            </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END Modal -->
 
     <!-- JS here -->
     <script src="js/jquery-3.5.1.min.js"></script>
@@ -2700,6 +2689,9 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/gijgo.min.js"></script>
+
+    <!-- mask phone -->
+    <script src="js/jquery.maskedinput.min.js"></script>
 
     <!--contact js-->
     <script src="js/contact.js"></script>

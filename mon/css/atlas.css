@@ -695,3 +695,18 @@
 .raiting i {
     color: #dc3545;
 }
+/* ======== */
+
+/* Validate */
+#desing-form input {
+    transition: all 0.3s ease;
+}
+.has-error {
+    border-color: red !important;
+    color: red;
+}
+
+
+.modal-backdrop {
+    z-index: 1040;
+}
