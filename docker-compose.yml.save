@@ -6,15 +6,15 @@ services:
   web-server:
     image: php:7.2-apache
     restart: always
-    container_name: kuhni    
+    container_name: Kuhni    
     ports:
-      - 8071:80
+      - 8070:80
     volumes:
       - ./mon/:/var/www/html
     networks:
-      - net
+      - project
 
 networks:
-  net:
+  project:
     driver: bridge
 

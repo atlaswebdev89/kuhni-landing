@@ -38,7 +38,7 @@
     background-color: rgba(62, 62, 62, 0.66);
 }
 .t-offers-order {
-
+    font-weight: bold;
     font-size: 26px !important;
     color: #dc3545 !important;
 }
@@ -706,7 +706,23 @@
     color: red;
 }
 
-
 .modal-backdrop {
     z-index: 1040;
 }
+
+/* modal message*/
+#loading {
+    background-image: url("../images/loading-ajax.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+p.msg {
+    display: none;
+}
+.msg-success {
+    color: #1e7e34;
+}
+.msg-error {
+    color: #d41b22 ;
+}
+/* ================== */
