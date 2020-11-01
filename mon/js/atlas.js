@@ -206,21 +206,21 @@ $(document).ready(function(){
         burger_mobile.on('click', function (e) {
                     e.preventDefault();
                     $(this).addClass('active');
-                    Open_overlay_mobile();
-                        //Открыть offcavnas меню
-                        $('.mobile_menu_block').addClass('open_offcavnas');
-                        //Отключить все карусели owl-carusel
-                        owl.trigger('stop.owl.autoplay');
-
                         //Открытие Submenu при активном пункте
-                        if ($('#navigation').find('.collapse .active').length > 0){
-                            $('#navigation').find('.collapse .active').each(function (i) {
+                        if ($('#navigation').find('.collapse li a.active').length > 0){
+                            $('#navigation').find('.collapse li a.active').each(function (i) {
                                 let active = $(this);
                                 if(active.closest('.collapse').hasClass('collapse'))
                                 {
                                     let item = active.closest('.collapse');
+                                    //Проверяем есть другие открытые подменю
+                                    if($('#navigation').find('.collapse.show').not(item).length > 0){
+                                        $('#navigation').find('.collapse.show').not(item).each(function () {
+                                            $(this).collapse('hide');
+                                            $(this).parent().children('.arrow-collapse').removeClass('active');
+                                        });
+                                    }
                                     let has_children = item.parent();
-
                                     if(!item.hasClass('show'))
                                     {
                                         item.collapse('show');
@@ -241,6 +241,11 @@ $(document).ready(function(){
                                 }
                             })
                         }
+            Open_overlay_mobile();
+            //Открыть offcavnas меню
+            $('.mobile_menu_block').addClass('open_offcavnas');
+            //Отключить все карусели owl-carusel
+            owl.trigger('stop.owl.autoplay');
         })
 
         overlay_offcavnas.on('click', function () {
