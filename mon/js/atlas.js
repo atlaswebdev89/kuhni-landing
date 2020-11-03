@@ -505,11 +505,25 @@ function urlencodeForm(form) {
     ajaxTransferUrlEncode(form, form_encode);
 }
 
+function NotyMessage (type, message) {
+    //Noty notifytions
+    let noty = new Noty({
+        type:       type,
+        theme:      'bootstrap-v4',
+        layout:     'topRight',
+        text:       message,
+        animation: {
+            open : 'animated fadeInRight',
+            close: 'animated fadeOutRight'
+        },
+        timeout: 3000,
+    }).show();
+}
+
 /*Функция передачи данных формы*/
 function ajaxTransferUrlEncode(forma, dataForm) {
     let uri = 'test.php';
     let form =$(forma);
-    console.log("giid");
     $.ajax({
         type: 'POST',
         url:uri,
@@ -532,24 +546,17 @@ function ajaxTransferUrlEncode(forma, dataForm) {
                     form[0].reset();
                     //Включение кнопки и элементов формы
                     form.find('button, input, textarea').removeAttr('disabled');
-                    form.find('#response_order').remove();
-                    form.append("<div id='response_order' class=''><p class='msg text-center m-0 pb-3'></p> </div>");
-                    form.find("p.msg").html(data.message);
-                        form.find("p.msg").addClass("msg-success").fadeIn("slow");
+                    NotyMessage('success', data.message);
                     setTimeout(function () {
                         //Если форма в модально окне, закрываем модальное окно при успехе
                         if (form.closest('.modal').hasClass('modal')) {
                             form.closest('.modal').modal( 'hide' );
                         }
-                        $('p.msg').fadeOut("slow").removeClass('msg-success').html("");
+
                     }, 3000);
                 }else {
-                    form.find('#response_order').remove();
-                    form.append("<div id='response_order' class=''><p class='msg text-center m-0 pb-3'></p> </div>");
-                    form.find("p.msg").html(data.message);
-                    form.find("p.msg").addClass("msg-error").fadeIn("slow");
+                    NotyMessage('error', data.message);
                     setTimeout(function () {
-                        $('p.msg').fadeOut("slow");
                         //Включение кнопки и элементов формы
                         form.find('button,input, textarea').removeAttr('disabled');
                     },2000);
@@ -557,17 +564,14 @@ function ajaxTransferUrlEncode(forma, dataForm) {
             }
         },
         error: function(x, t, e){
+            form.find('#loading').remove();
             if( t === 'timeout') {
                 // Произошел тайм-аут
                 //Очистка формы
                 form[0].reset();
                 //Включение кнопки и элементов формы
                 form.find('button,input, textarea').removeAttr('disabled');
-                form.find('#response_order').remove();
-                form.append("<div id='response_order' class=''><p class='msg text-center m-0 pb-3'></p> </div>");
-                form.find("p.msg").html('Превышено время ожидания');
-                form.find("p.msg").addClass("msg-error").fadeIn("slow");
-                setTimeout(function() { $('p.msg').fadeOut("slow"); }, 3000);
+                NotyMessage('error', 'Превышено время ожидания');
             }
         }
     })
