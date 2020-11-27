@@ -474,6 +474,7 @@ $('#contactFormModal').validate({
             minlength: 2
         },
         email:{
+            email: true,
             required:true,
         },
     },
